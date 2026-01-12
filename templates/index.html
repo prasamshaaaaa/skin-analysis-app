@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkinSense — Upload</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>SkinSense</h1>
+    <p>AI-powered skin analysis — acne & skin type</p>
+
+    <form id="uploadForm" action="/analyze" method="post" enctype="multipart/form-data">
+      <label for="fileInput" class="drop-area">
+        Drag & drop or <span class="browse">browse</span> your face photo
+      </label>
+      <input id="fileInput" name="image" type="file" accept="image/*" required>
+      <button class="cta" type="submit">Analyze Skin</button>
+    </form>
+  </main>
+</body>
+</html>

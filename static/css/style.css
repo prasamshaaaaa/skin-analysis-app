@@ -1,0 +1,134 @@
+:root {
+  --gradient-bg: linear-gradient(135deg, #7ed56f, #5eead4);
+  --card-bg: rgba(255, 255, 255, 0.2);
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --primary-color: #ffffff;
+  --secondary-color: #e0f7fa;
+  --radius: 20px;
+  --cta-color: #00acc1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: var(--gradient-bg);
+  display: flex;
+  justify-content: center;  /* horizontal centering */
+  align-items: flex-start;  /* align to top instead of vertical center */
+  color: var(--primary-color);
+  padding: 60px 20px 20px 20px; /* extra top padding for breathing room */
+}
+
+.container {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border-radius: var(--radius);
+  padding: 40px;
+  width: 100%;
+  max-width: 480px; /* keeps container from being too wide */
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  overflow-wrap: break-word;
+  margin-top: 20px; /* additional spacing if needed */
+}
+
+
+.details-card {
+  text-align: left;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.suggestions {
+  margin-top: 10px;
+  padding-left: 20px; /* proper indentation for list */
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+p {
+  opacity: 0.9;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.drop-area {
+  border: 2px dashed var(--primary-color);
+  border-radius: var(--radius);
+  padding: 40px 20px;       /* more space inside */
+  min-height: 180px;        /* ensures box is tall enough */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical centering */
+  align-items: center;      /* horizontal centering */
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+
+.drop-area:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.browse {
+  color: var(--cta-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.cta {
+  background: var(--cta-color);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.face-card img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 10px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.details-card {
+  text-align: left;
+}
+
+.suggestions {
+  margin-top: 10px;
+}
+
+.suggestions li {
+  margin-bottom: 6px;
+  word-wrap: break-word;
+}

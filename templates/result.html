@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkinSense — Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+  <main class="container">
+    <section class="hero result-hero">
+      <h1 class="brand">SkinSense • Analysis Result</h1>
+
+      {% if error %}
+        <div class="card error-card">
+          <p>{{ error }}</p>
+          <a href="{{ url_for('index') }}" class="btn">Try Again</a>
+        </div>
+      {% else %}
+        <div class="result-grid">
+          <!-- Face Image -->
+          <div class="card face-card animate__animated animate__fadeInLeft">
+            <img src="{{ face_url }}" alt="Cropped face" />
+            <div class="face-caption">Cropped Face</div>
+          </div>
+
+          <!-- Analysis Details -->
+          <div class="card details-card animate__animated animate__fadeInRight">
+            <h2>Analysis</h2>
+            <p><strong>Skin Type:</strong> {{ skin_type }}</p>
+            <p><strong>Acne:</strong> {{ acne_label }}</p>
+
+            <h3>Suggested Routine</h3>
+            <ul class="suggestions">
+              {% for s in suggestions %}
+                <li>{{ s }}</li>
+              {% endfor %}
+            </ul>
+
+            <button id="showProducts" class="btn">Show Recommended Products</button>
+
+            <!-- Product Recommendations -->
+            <div id="products" class="grid" style="display:none; margin-top:20px;">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/61zK9OXKxrL._SL1500_.jpg" alt="Cetaphil Cleanser">
+                    <h4>Cetaphil Gentle Skin Cleanser</h4>
+                    <p>Best for sensitive, dry & combination skin.</p>
+                    <a class="btn" href="https://www.amazon.com/" target="_blank">Buy Now</a>
+                </div>
+
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/61javO8WvRL._SL1500_.jpg" alt="CeraVe Cleanser">
+                    <h4>CeraVe Foaming Cleanser</h4>
+                    <p>Ideal for oily & acne-prone skin.</p>
+                    <a class="btn" href="https://www.amazon.com/" target="_blank">Buy Now</a>
+                </div>
+
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/61S2p8qhIPL._SL1500_.jpg" alt="La Roche-Posay Treatment">
+                    <h4>La Roche-Posay Effaclar Duo</h4>
+                    <p>Top treatment for acne & blemishes.</p>
+                    <a class="btn" href="https://www.amazon.com/" target="_blank">Buy Now</a>
+                </div>
+            </div>
+
+            <a href="{{ url_for('index') }}" class="btn" style="margin-top:20px;">Analyze Another Photo</a>
+          </div>
+        </div>
+      {% endif %}
+
+      <footer class="footer" style="margin-top:20px;">Tip: For best results, upload a well-lit frontal face photo.</footer>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>
